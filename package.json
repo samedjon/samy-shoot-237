@@ -1,0 +1,19 @@
+{
+  "name": "samy-shoot-237",
+  "version": "1.0.0",
+  "description": "Site web professionnel pour Samy Shoot 237",
+  "scripts": {
+    "start": "live-server src --port=3000 --no-browser",
+    "optimize": "sharp-cli --input src/images/**/*.jpg --output-dir src/images/optimized --quality 80",
+    "predeploy": "npm run optimize",
+    "deploy": "gh-pages -d src"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "gh-pages": "^6.1.0",
+    "sharp-cli": "^4.1.1"
+  },
+  "dependencies": {
+    "samy-shoot-237": "file:"
+  }
+}

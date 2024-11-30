@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samy Shoot 237 - Studio Photo & Vidéo Professionnel</title>
+    
+<!-- Polices -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/base/variables.css">
+<link rel="stylesheet" href="css/base/reset.css">
+<link rel="stylesheet" href="css/base/layout.css">
+<link rel="stylesheet" href="css/components/header.css">
+<link rel="stylesheet" href="css/components/navigation.css">
+<link rel="stylesheet" href="css/components/hero.css">
+<link rel="stylesheet" href="css/components/audio-player.css">
+<link rel="stylesheet" href="css/components/services.css">
+<link rel="stylesheet" href="css/components/portfolio.css">
+<link rel="stylesheet" href="css/components/pricing.css">
+<link rel="stylesheet" href="css/components/events.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/notifications.css">
+<script src="js/components/services.js" defer></script>
+
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="nav__logo">
+                    <span class="sr-only">Samy Shoot 237</span>
+                    <img src="images/logo-white.png" alt="Samy Shoot 237" class="nav__logo-img">
+                </a>
+
+                <button class="nav__toggle" aria-label="Toggle menu">
+                    <span class="nav__toggle-icon"></span>
+                </button>
+
+                <ul class="nav__menu">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link nav__link--active">Accueil</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">Portfolio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">À propos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Héros -->
+    <section class="hero">
+        <video class="hero__video" autoplay muted loop playsinline>
+            <source src="videos/logo-samy-animation.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Capturez vos moments précieux</h1>
+                <p class="hero__subtitle">Studio photo & vidéo professionnel à Yaoundé & Douala, Cameroun</p>
+                <div class="hero__cta">
+                    <a href="#portfolio" class="btn btn--primary">Voir notre portfolio</a>
+                    <a href="#contact" class="btn btn--secondary">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="services__title">Nos Services</h2>
+            <div class="services__categories">
+                <button class="services__category-btn active" data-category="all">Tous les Services</button>
+                <button class="services__category-btn" data-category="photo">Photographie</button>
+                <button class="services__category-btn" data-category="video">Vidéo</button>
+                <button class="services__category-btn" data-category="mode">Mode & Beauté</button>
+            </div>
+            <div class="services__grid">
+                <!-- Les cartes de services seront générées dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Template pour les cartes de services -->
+    <template id="serviceCardTemplate">
+        <div class="service-card">
+            <div class="service-card__background"></div>
+            <div class="service-card__content">
+                <h3 class="service-card__title"></h3>
+                <button class="service-card__button">En savoir plus</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template pour les détails des services -->
+    <template id="serviceDetailsTemplate">
+        <div class="service-details">
+            <div class="service-details__background"></div>
+            <div class="service-details__content">
+                <button class="service-details__close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="service-details__header">
+                    <h3 class="service-details__title"></h3>
+                    <p class="service-details__price"></p>
+                </div>
+                <p class="service-details__description"></p>
+                <div class="service-details__features-container">
+                    <h4 class="service-details__features-title">Ce qui est inclus :</h4>
+                    <ul class="service-details__features"></ul>
+                </div>
+                <button class="service-details__cta">Réserver maintenant</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Notre Portfolio</h2>
+            <p class="section-subtitle">Découvrez nos meilleures réalisations</p>
+            
+            <!-- Portfolio Categories -->
+            <div class="portfolio-categories">
+                <button class="category-btn active" data-category="all">Tout</button>
+                <button class="category-btn" data-category="wedding">Mariage</button>
+                <button class="category-btn" data-category="cosmetic">Cosmétique</button>
+                <button class="category-btn" data-category="creative">Créatif</button>
+                <button class="category-btn" data-category="birthday">Anniversaire</button>
+                <button class="category-btn" data-category="lingerie">Lingerie</button>
+                <button class="category-btn" data-category="evening">Robe de Soirée</button>
+                <button class="category-btn" data-category="sport">Sport</button>
+                <button class="category-btn" data-category="corporate">Corporate</button>
+                <button class="category-btn" data-category="pregnancy">Grossesse</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="portfolio-load-more">
+                <button class="load-more-btn" id="load-more-btn">Voir plus</button>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal -->
+        <div class="portfolio-modal" id="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-image-container">
+                    <img src="" alt="" id="modal-image">
+                    <button class="nav-btn prev-btn">&lt;</button>
+                    <button class="nav-btn next-btn">&gt;</button>
+                </div>
+                <div class="modal-info">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tarifs -->
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-header">
+            <h2><i class="fas fa-camera"></i> Services Photo</h2>
+            <p>Des offres adaptées à tous vos besoins</p>
+        </div>
+
+        <div class="pricing-categories">
+            <button class="pricing-category-btn active" data-category="photo">
+                <i class="fas fa-camera"></i> Photo
+            </button>
+            <button class="pricing-category-btn" data-category="vidéo">
+                <i class="fas fa-video"></i> Vidéo
+            </button>
+            <button class="pricing-category-btn" data-category="événements">
+                <i class="fas fa-calendar-alt"></i> Événements
+            </button>
+            <button class="pricing-category-btn" data-category="services">
+                <i class="fas fa-plus-circle"></i> Services Additionnels
+            </button>
+            <button class="pricing-category-btn" data-category="plus">
+                <i class="fas fa-ellipsis-h"></i> Plus de Services
+            </button>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Niveau Économie -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Niveau Économie</h3>
+                <div class="price">20,000 FCFA</div>
+                <div class="price-details">3 photos / 8,000 FCFA (unité)</div>
+                <ul class="features">
+                    <li><i class="fas fa-clock"></i> Délai : 10 jours</li>
+                    <li><i class="fas fa-star-half-alt"></i> Qualité basique</li>
+                    <li><i class="fas fa-check"></i> Solution économique pour des besoins simples</li>
+                </ul>
+                <a href="#contact" class="btn">
+                    <span>Réserver</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Niveau Premium -->
+            <div class="pricing-card recommended" data-aos="fade-up" data-aos-delay="200">
+                <h3>Niveau Premium</h3>
+                <div class="price">58,000 FCFA</div>
+                <div class="price-details">5 photos / 12,000 FCFA (unité)</div>
+                <ul class="features">
+                    <li><i class="fas fa-clock"></i> Délai : 5 jours</li>
+                    <li><i class="fas fa-star"></i> Bonne qualité</li>
+                    <li><i class="fas fa-user-tie"></i> Service personnalisé</li>
+                    <li><i class="fas fa-certificate"></i> Qualité professionnelle</li>
+                </ul>
+                <a href="#contact" class="btn">
+                    <span>Réserver</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Niveau Gold -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Niveau Gold</h3>
+                <div class="price">80,000 FCFA</div>
+                <div class="price-details">5 photos / 17,000 FCFA (unité)</div>
+                <ul class="features">
+                    <li><i class="fas fa-clock"></i> Délai : 2 jours</li>
+                    <li><i class="fas fa-star"></i> Qualité supérieure</li>
+                    <li><i class="fas fa-lightbulb"></i> Créativité accrue</li>
+                    <li><i class="fas fa-magic"></i> Retouches avancées</li>
+                </ul>
+                <a href="#contact" class="btn">
+                    <span>Réserver</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Niveau Extra Gold -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Niveau Extra Gold</h3>
+                <div class="price">100,000 FCFA</div>
+                <div class="price-details">4 photos / 25,000 FCFA (unité)</div>
+                <ul class="features">
+                    <li><i class="fas fa-bolt"></i> Délai : Instantané</li>
+                    <li><i class="fas fa-crown"></i> Très haute qualité</li>
+                    <li><i class="fas fa-photo-video"></i> Travail immersif</li>
+                    <li><i class="fas fa-star"></i> Service VIP pour artistes</li>
+                    <li><i class="fas fa-gem"></i> Fin gourmet de spécialité photographique</li>
+                </ul>
+                <a href="#contact" class="btn">
+                    <span>Réserver</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        
+    </section>
+
+   <!-- Contact Section -->
+   <section id="contact" class="contact-section">
+       <div class="container">
+           <div class="contact-header">
+               <h2 class="section-title">Restons en Contact</h2>
+               <p class="section-subtitle">Nous sommes là pour répondre à toutes vos questions</p>
+           </div>
+
+           <div class="contact-info">
+               <div class="company-intro">
+                   <img src="images/LogoSamyProduction.png" alt="Samy Production Logo" class="contact-logo">
+                   <p class="company-description">
+                       Samy Production – Production audiovisuelle professionnelle au service de votre créativité
+                   </p>
+               </div>
+
+               <div class="contact-details">
+                   <div class="contact-item">
+                       <div class="contact-icon">
+                           <i class="fas fa-map-marker-alt"></i>
+                       </div>
+                       <div class="contact-text">
+                           <h3>Adresse</h3>
+                           <p>Yaoundé - Cité verte Yoyo bar (Plateau), Cameroun</p>
+                           <p>Disponible pour des déplacements</p>
+                       </div>
+                   </div>
+
+                   <div class="contact-item">
+                       <div class="contact-icon">
+                           <i class="fas fa-phone-alt"></i>
+                       </div>
+                       <div class="contact-text">
+                           <h3>Téléphone</h3>
+                           <h4>Ligne directe & whatsapp</h3>
+                           <p>+237 697291546</p>
+                           <p>Disponible 7j/7 de 8h à 20h</p>
+                       </div>
+                   </div>
+
+                   <div class="contact-item">
+                       <div class="contact-icon">
+                           <i class="fas fa-envelope"></i>
+                       </div>
+                       <div class="contact-text">
+                           <h3>Email</h3>
+                           <p>samyproduction237@gmail.com</p>
+                           <p>Réponse sous 24h</p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Documents et Ressources -->
+               <div class="resources-section">
+                   <h3>Documents Utiles</h3>
+                   <div class="resource-links">
+                       <a href="#" class="resource-link">
+                           <i class="fas fa-file-pdf"></i>
+                           Brochure des Services
+                       </a>
+                       <a href="#" class="resource-link">
+                           <i class="fas fa-file-invoice-dollar"></i>
+                           Grille Tarifaire
+                       </a>
+                   </div>
+               </div>
+
+               <!-- Réseaux Sociaux -->
+               <div class="contact-social">
+                   <h3>Suivez-nous</h3>
+                   <div class="social-links">
+                       <a href="#" class="social-link" aria-label="Facebook">
+                           <i class="fab fa-facebook-f"></i>
+                       </a>
+                       <a href="#" class="social-link" aria-label="Instagram">
+                           <i class="fab fa-instagram"></i>
+                       </a>
+                       <a href="#" class="social-link" aria-label="WhatsApp">
+                           <i class="fab fa-whatsapp"></i>
+                       </a>
+                       <a href="#" class="social-link" aria-label="YouTube">
+                           <i class="fab fa-youtube"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Colonne du formulaire -->
+           <div class="contact-form-wrapper">
+               <form class="contact-form" id="contactForm">
+                   <div class="form-group floating-label">
+                       <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+                       <label for="name">Votre nom</label>
+                   </div>
+
+                   <div class="form-group floating-label">
+                       <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                       <label for="email">Votre email</label>
+                   </div>
+
+                   <div class="form-group">
+                       <select id="service" name="service" class="form-control" required>
+                           <option value="">Sélectionnez un service</option>
+                           <option value="photo">Photographie</option>
+                           <option value="video">Vidéographie</option>
+                           <option value="event">Événementiel</option>
+                           <option value="makeup">Maquillage Artistique</option>
+                           <option value="animation">Animation Vidéo</option>
+                           <option value="design">Design Graphique</option>
+                       </select>
+                   </div>
+
+                   <div class="form-group floating-label">
+                       <textarea id="message" name="message" class="form-control" rows="5" placeholder=" " required></textarea>
+                       <label for="message">Votre message</label>
+                   </div>
+
+                   <button type="submit" class="btn-send">
+                       <span class="btn-text">Envoyer le message</span>
+                       <i class="fas fa-paper-plane"></i>
+                   </button>
+               </form>
+
+               <!-- Services Additionnels -->
+               <div class="additional-services">
+                   <h3>Nos Services</h3>
+                   <div class="services-grid">
+                       <div class="service-tag">
+                           <i class="fas fa-camera"></i>
+                           Photographie
+                       </div>
+                       <div class="service-tag">
+                           <i class="fas fa-video"></i>
+                           Vidéographie
+                       </div>
+                       <div class="service-tag">
+                           <i class="fas fa-paint-brush"></i>
+                           Maquillage
+                       </div>
+                       <div class="service-tag">
+                           <i class="fas fa-film"></i>
+                           Animation
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   
+   <!-- Footer -->
+   <footer class="footer">
+       <div class="container">
+           <div class="footer-content">
+               <div class="footer-section">
+                   <img src="images/LogoSamyProduction.png" alt="Samy Production Logo" class="footer-logo">
+                   <p class="footer-description">
+                       Production audiovisuelle professionnelle au Cameroun. Nous donnons vie à vos projets avec créativité et excellence.
+                   </p>
+               </div>
+   
+               <div class="footer-section">
+                   <h3>Liens Rapides</h3>
+                   <ul class="footer-links">
+                       <li><a href="#home">Accueil</a></li>
+                       <li><a href="#services">Services</a></li>
+                       <li><a href="#portfolio">Portfolio</a></li>
+                       <li><a href="#about">À Propos</a></li>
+                       <li><a href="#contact">Contact</a></li>
+                   </ul>
+               </div>
+   
+               <div class="footer-section">
+                   <h3>Services</h3>
+                   <ul class="footer-links">
+                       <li><a href="#services">Photographie</a></li>
+                       <li><a href="#services">Vidéographie</a></li>
+                       <li><a href="#services">Maquillage</a></li>
+                       <li><a href="#services">Animation</a></li>
+                       <li><a href="#services">Design Graphique</a></li>
+                   </ul>
+               </div>
+   
+               <div class="footer-section">
+                   <h3>Contact</h3>
+                   <div class="footer-contact-info">
+                       <p><i class="fas fa-phone"></i> +237 697291546</p>
+                       <p><i class="fas fa-envelope"></i> samyproduction237@gmail.com</p>
+                       <p><i class="fas fa-map-marker-alt"></i> Yaoundé - Cité verte</p>
+                   </div>
+                   <div class="footer-social">
+                       <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                       <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                       <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                   </div>
+               </div>
+           </div>
+   
+           <div class="footer-bottom">
+               <p>&copy; 2024 Samy Production. Tous droits réservés.</p>
+           </div>
+       </div>
+   </footer>
+    <!-- Scripts -->
+    <script src="js/utils/helpers.js" type="module"></script>
+    <script src="js/components/navigation.js" type="module"></script>
+    <script src="js/components/audio-player.js" type="module"></script>
+    <script src="js/components/hero-animation.js" type="module"></script>
+    <script src="js/components/services.js" type="module"></script>
+    <script src="js/components/portfolio.js" type="module"></script>
+    <script src="js/components/pricing.js" type="module"></script>
+    <script src="js/components/contact-form.js" type="module"></script>
+    <script src="js/components/header.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

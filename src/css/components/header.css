@@ -1,0 +1,115 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(26, 35, 45, 0.95); /* Fond sombre luxueux */
+    padding: 0.1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+}
+
+.header--hidden {
+    transform: translateY(-100%);
+}
+
+.header--scrolled {
+    background-color: rgba(26, 35, 45, 0.98);
+    box-shadow: var(--shadow-md);
+}
+
+.header .container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* Augmenté l'espace entre les éléments */
+    color: #ffffff;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav__logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    color: #ffffff !important; /* Force la couleur blanche */
+    font-weight: 500;
+    position: relative;
+    padding: 0.8rem 2.5rem; /* Augmenté à 2.5rem */
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6; /* Opacité réduite par défaut */
+    height: 38px; /* Même hauteur que le cercle */
+    line-height: 1; /* Ajusté pour un meilleur alignement vertical */
+}
+
+.nav__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05); /* Fond légèrement visible par défaut */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    opacity: 0.6; /* Opacité réduite par défaut */
+    z-index: -1; /* S'assurer que le cercle est derrière le texte */
+}
+
+.nav__link:hover {
+    color: #ffffff !important;
+    opacity: 1; /* Opacité normale au survol */
+}
+
+.nav__link:hover::before {
+    opacity: 1; /* Opacité normale au survol */
+}
+
+.nav__link--active {
+    color: #ffffff !important;
+    font-weight: 600;
+    opacity: 1; /* Toujours opacité normale pour l'élément actif */
+}
+
+.nav__link--active::before {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    opacity: 1; /* Toujours opacité normale pour l'élément actif */
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.05rem 0;
+    }
+    
+    .header .container {
+        height: 35px;
+        padding: 0 1rem;
+    }
+}
